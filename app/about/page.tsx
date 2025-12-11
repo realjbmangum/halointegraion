@@ -11,7 +11,7 @@ export default function AboutPage() {
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img src="/HaloIntegration.jpeg" alt="Digital Infrastructure" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/30 to-background/50" />
+          {/* No overlay - full vivid image */}
         </div>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-16">
           <div className="max-w-4xl mx-auto text-center">
