@@ -3,9 +3,6 @@ import type { Metadata } from "next"
 import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
 import "./globals.css"
-import { Navigation } from "@/components/navigation"
-import { Footer } from "@/components/footer"
-import { Suspense } from "react"
 
 export const metadata: Metadata = {
   title: "Halo Integration | Infrastructure Technology Consulting",
@@ -26,11 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} antialiased`}>
-        <Suspense fallback={<div>Loading...</div>}>
-          <Navigation />
-          {children}
-          <Footer />
-        </Suspense>
+        {children}
       </body>
     </html>
   )
