@@ -9,16 +9,16 @@ export function FooterRedesign() {
 
   const footerLinks = {
     services: [
-      { label: "Infrastructure Consulting", href: "/redesign/services/infrastructure-consulting" },
-      { label: "Digital Solutions", href: "/redesign/services/digital-solutions" },
-      { label: "Multi-Family", href: "/redesign/services/multi-family" },
-      { label: "Hospitality", href: "/redesign/services/hospitality" },
+      { label: "Infrastructure Consulting", href: "/services/infrastructure-consulting" },
+      { label: "Digital Solutions", href: "/services/digital-solutions" },
+      { label: "Multi-Family", href: "/services/multi-family" },
+      { label: "Hospitality", href: "/services/hospitality" },
     ],
     company: [
-      { label: "About Us", href: "/redesign/about" },
-      { label: "Services", href: "/redesign/services" },
-      { label: "Projects", href: "/redesign/projects" },
-      { label: "Contact", href: "/redesign/contact" },
+      { label: "About Us", href: "/about" },
+      { label: "Services", href: "/services" },
+      { label: "Projects", href: "/projects" },
+      { label: "Contact", href: "/contact" },
     ],
   }
 
@@ -31,7 +31,7 @@ export function FooterRedesign() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <Link href="/redesign" className="inline-block mb-6">
+            <Link href="/" className="inline-block mb-6">
               <span className="text-2xl font-bold text-gradient">HALO</span>
             </Link>
             <p className="text-white/50 text-sm leading-relaxed mb-6">
@@ -104,7 +104,7 @@ export function FooterRedesign() {
               Ready to transform your infrastructure?
             </p>
             <Link
-              href="/redesign/contact"
+              href="/contact"
               className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold rounded-full bg-white/5 border border-white/10 text-white hover:bg-[#00ffd5] hover:text-[#0a0a0f] hover:border-[#00ffd5] transition-all duration-300"
             >
               Start a Conversation
@@ -119,9 +119,6 @@ export function FooterRedesign() {
             &copy; {currentYear} Halo Integration. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
-            <Link href="/redesign" className="text-xs text-white/30 hover:text-white/60 transition-colors">
-              ← Back to Original
-            </Link>
           </div>
         </div>
       </div>

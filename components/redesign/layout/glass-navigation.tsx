@@ -19,10 +19,10 @@ export function GlassNavigation() {
   }, [])
 
   const navLinks = [
-    { href: "/redesign", label: "Home" },
-    { href: "/redesign/services", label: "Services" },
-    { href: "/redesign/projects", label: "Projects" },
-    { href: "/redesign/about", label: "About" },
+    { href: "/", label: "Home" },
+    { href: "/services", label: "Services" },
+    { href: "/projects", label: "Projects" },
+    { href: "/about", label: "About" },
   ]
 
   return (
@@ -36,7 +36,7 @@ export function GlassNavigation() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
-            <Link href="/redesign" className="relative z-10 group">
+            <Link href="/" className="relative z-10 group">
               <div className="relative">
                 {/* Halo glow effect */}
                 <div className="absolute -inset-4 bg-[#00ffd5]/0 group-hover:bg-[#00ffd5]/10 blur-xl transition-all duration-500 rounded-full" />
@@ -76,7 +76,7 @@ export function GlassNavigation() {
                 className="ml-4"
               >
                 <Link
-                  href="/redesign/contact"
+                  href="/contact"
                   className="relative px-5 py-2.5 text-sm font-semibold rounded-full overflow-hidden group"
                 >
                   {/* Button background */}
@@ -171,7 +171,7 @@ export function GlassNavigation() {
                       className="pt-4 border-t border-white/10"
                     >
                       <Link
-                        href="/redesign/contact"
+                        href="/contact"
                         className="block px-4 py-3 text-center font-semibold rounded-full bg-gradient-to-r from-[#00ffd5] to-[#00d4b0] text-[#030014]"
                         onClick={() => setMobileMenuOpen(false)}
                       >

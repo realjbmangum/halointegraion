@@ -1,6 +1,5 @@
-import { Navigation } from "@/components/navigation"
-import { Footer } from "@/components/footer"
-import { Suspense } from "react"
+import { GlassNavigation } from "@/components/redesign/layout/glass-navigation"
+import { FooterRedesign } from "@/components/redesign/layout/footer"
 
 export default function MainLayout({
   children,
@@ -8,10 +7,10 @@ export default function MainLayout({
   children: React.ReactNode
 }>) {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <Navigation />
+    <div className="antialiased bg-[#0a0a0f] text-white min-h-screen">
+      <GlassNavigation />
       {children}
-      <Footer />
-    </Suspense>
+      <FooterRedesign />
+    </div>
   )
 }

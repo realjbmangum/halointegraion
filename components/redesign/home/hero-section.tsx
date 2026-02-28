@@ -250,7 +250,7 @@ export function HeroRedesign() {
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
             <Link
-              href="/redesign/contact"
+              href="/contact"
               className="group relative px-8 py-4 rounded-full bg-gradient-to-r from-[#00ffd5] to-[#00d4b0] text-[#030014] font-semibold text-lg overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_rgba(0,255,213,0.5)]"
             >
               <span className="relative z-10 flex items-center gap-2">
@@ -264,7 +264,7 @@ export function HeroRedesign() {
               </span>
             </Link>
             <Link
-              href="/redesign/services"
+              href="/services"
               className="px-8 py-4 rounded-full bg-white/5 border border-white/10 text-white font-semibold text-lg hover:bg-white/10 hover:border-white/20 backdrop-blur-sm transition-all duration-300"
             >
               Explore Services

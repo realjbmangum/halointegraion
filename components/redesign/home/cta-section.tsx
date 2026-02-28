@@ -79,7 +79,7 @@ export function CTASectionRedesign() {
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
-              href="/redesign/contact"
+              href="/contact"
               className="group relative px-8 py-4 rounded-full overflow-hidden"
             >
               {/* Animated gradient background */}
@@ -92,7 +92,7 @@ export function CTASectionRedesign() {
             </Link>
 
             <Link
-              href="/redesign/services"
+              href="/services"
               className="px-8 py-4 rounded-full bg-white/5 border border-white/10 text-white font-semibold text-lg hover:bg-white/10 hover:border-white/20 transition-all duration-300"
             >
               View Our Services

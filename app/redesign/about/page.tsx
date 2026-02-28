@@ -456,7 +456,7 @@ export default function AboutPage() {
               Ready to work with a team that puts your success first?
             </p>
             <Link
-              href="/redesign/contact"
+              href="/contact"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-[#00ffd5] to-[#00d4b0] text-[#030014] font-semibold text-lg hover:shadow-[0_0_40px_rgba(0,255,213,0.4)] transition-all duration-300 hover:scale-105"
             >
               Get in Touch
