@@ -20,8 +20,8 @@ const contactInfo = [
   {
     icon: MapPin,
     title: "Katy, TX",
-    subtitle: "25140 Kingsland Blvd, STE #104",
-    href: "https://maps.google.com/?q=25140+Kingsland+Blvd+STE+104+Katy+TX+77494",
+    subtitle: "25140 Kingsland Blvd, STE #103",
+    href: "https://maps.google.com/?q=25140+Kingsland+Blvd+STE+103+Katy+TX+77494",
   },
 ]
 

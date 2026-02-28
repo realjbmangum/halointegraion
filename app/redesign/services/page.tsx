@@ -150,17 +150,17 @@ const industries = [
   {
     title: "Multi-Family",
     description:
-      "Smart communities with tailored security, self-guided tours, mobile management, and IoT integration to reduce expenses and amplify ROI.",
+      "Built-to-scale infrastructure and integrated technology systems that enhance resident experience, streamline operations, and protect long-term asset value.",
   },
   {
     title: "Hospitality",
     description:
-      "Cloud-based platforms for hotels and mixed-use buildings. Mobile credentials for seamless guest movement from parking to room.",
+      "Future-ready infrastructure and guest-facing technology solutions designed to optimize operations, elevate the guest journey, and support brand standards.",
   },
   {
     title: "Enterprise",
     description:
-      "Robust, scalable security systems consolidated in a single cyber-secure platform with deep physical environment insights.",
+      "Secure, scalable infrastructure and integrated systems that support mission-critical operations, compliance, and long-term performance.",
   },
 ]
 
@@ -224,14 +224,13 @@ export default function ServicesPage() {
               Our Services
             </span>
             <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-              Digital Infrastructure &{" "}
+              End-to-End{" "}
               <span className="bg-gradient-to-r from-[#00ffd5] to-[#a855f7] bg-clip-text text-transparent">
-                Low Voltage Solutions
+                Technology Services
               </span>
             </h1>
             <p className="text-xl text-white/60 max-w-2xl mx-auto">
-              Expert installation and maintenance of structured cabling, security systems, and digital solutions
-              tailored for your business.
+              Integrated infrastructure and technology systems delivered with precision and accountability
             </p>
           </motion.div>
         </div>
@@ -265,7 +264,7 @@ export default function ServicesPage() {
                 <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-[#00ffd5] transition-colors">
                   {industry.title}
                 </h3>
-                <p className="text-white/50 leading-relaxed">{industry.description}</p>
+                <p className="text-white/70 leading-relaxed">{industry.description}</p>
               </motion.div>
             ))}
           </div>
@@ -371,7 +370,7 @@ export default function ServicesPage() {
                       <h3 className="text-2xl sm:text-3xl font-bold text-white">{service.title}</h3>
                     </div>
 
-                    <p className="text-lg text-white/60 leading-relaxed mb-8">{service.description}</p>
+                    <p className="text-lg text-white/80 leading-relaxed mb-8">{service.description}</p>
 
                     <div className="grid sm:grid-cols-2 gap-3">
                       {service.features.map((feature) => (
@@ -379,7 +378,7 @@ export default function ServicesPage() {
                           <div className="w-5 h-5 rounded-full bg-[#00ffd5]/20 flex items-center justify-center flex-shrink-0">
                             <Check className="w-3 h-3 text-[#00ffd5]" />
                           </div>
-                          <span className="text-white/70 text-sm">{feature}</span>
+                          <span className="text-white/80 text-sm">{feature}</span>
                         </div>
                       ))}
                     </div>

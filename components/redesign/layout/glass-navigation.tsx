@@ -41,11 +41,11 @@ export function GlassNavigation() {
                 {/* Halo glow effect */}
                 <div className="absolute -inset-4 bg-[#00ffd5]/0 group-hover:bg-[#00ffd5]/10 blur-xl transition-all duration-500 rounded-full" />
                 <Image
-                  src="/halo-logo.png"
+                  src="/MASTER LOGO_ALT_WHT_V2.png"
                   alt="Halo Integration"
-                  width={160}
-                  height={48}
-                  className="relative h-10 w-auto"
+                  width={500}
+                  height={500}
+                  className="relative h-14 w-auto"
                   priority
                 />
               </div>

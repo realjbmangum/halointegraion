@@ -2,16 +2,16 @@
 
 import { motion } from "framer-motion"
 import Link from "next/link"
-import { Camera, Lock, Wifi, Phone, Server, Cable } from "lucide-react"
+import { Camera, Lock, Wifi, Phone, Briefcase, Cable } from "lucide-react"
 
 // Infrastructure nodes representing what Halo does
 const infrastructureNodes = [
   { icon: Camera, label: "Surveillance", x: "15%", y: "25%", delay: 0 },
   { icon: Lock, label: "Access Control", x: "85%", y: "30%", delay: 0.5 },
-  { icon: Wifi, label: "Wi-Fi Networks", x: "50%", y: "15%", delay: 1 },
+  { icon: Cable, label: "Structured Cabling", x: "50%", y: "15%", delay: 1 },
   { icon: Phone, label: "VoIP Phones", x: "20%", y: "70%", delay: 1.5 },
-  { icon: Server, label: "Infrastructure", x: "80%", y: "75%", delay: 2 },
-  { icon: Cable, label: "Structured Cabling", x: "50%", y: "85%", delay: 2.5 },
+  { icon: Briefcase, label: "Technology Strategy & Consulting", x: "80%", y: "75%", delay: 2 },
+  { icon: Wifi, label: "Wi-Fi Networks", x: "50%", y: "85%", delay: 2.5 },
 ]
 
 // Connection paths between nodes (representing infrastructure wiring)
@@ -145,7 +145,7 @@ export function HeroRedesign() {
               {/* Outer ring pulse */}
               <motion.div
                 className="absolute inset-0 rounded-full border border-[#00ffd5]/30"
-                style={{ width: 80, height: 80, left: -24, top: -24 }}
+                style={{ width: 80, height: 80, left: -16, top: -16 }}
                 animate={{ scale: [1, 1.5, 1], opacity: [0.3, 0, 0.3] }}
                 transition={{ duration: 3, repeat: Infinity, delay: node.delay }}
               />
@@ -156,14 +156,14 @@ export function HeroRedesign() {
                 <div className="absolute inset-0 rounded-full bg-[#00ffd5]/20 blur-xl scale-150" />
 
                 {/* Icon container */}
-                <div className="relative w-8 h-8 rounded-full bg-[#0a0a0f] border border-[#00ffd5]/50 flex items-center justify-center">
-                  <Icon className="w-4 h-4 text-[#00ffd5]" />
+                <div className="relative w-12 h-12 rounded-full bg-[#0a0a0f] border border-[#00ffd5]/50 flex items-center justify-center">
+                  <Icon className="w-6 h-6 text-[#00ffd5]" />
                 </div>
               </div>
 
               {/* Label */}
               <motion.div
-                className="absolute top-10 left-1/2 -translate-x-1/2 whitespace-nowrap"
+                className="absolute top-14 left-1/2 -translate-x-1/2 w-20 text-center"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: node.delay + 1 }}
@@ -199,17 +199,6 @@ export function HeroRedesign() {
       {/* Content */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-20">
         <div className="max-w-5xl mx-auto text-center">
-          {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm mb-8"
-          >
-            <span className="w-2 h-2 rounded-full bg-[#00ffd5] animate-pulse shadow-[0_0_10px_rgba(0,255,213,0.8)]" />
-            <span className="text-sm text-white/80">Low Voltage & Digital Infrastructure</span>
-          </motion.div>
-
           {/* Main headline */}
           <div className="overflow-hidden mb-4">
             <motion.h1
@@ -250,7 +239,7 @@ export function HeroRedesign() {
             className="text-lg sm:text-xl text-white/60 max-w-2xl mx-auto mb-12 leading-relaxed"
           >
             Structured cabling, access control, video surveillance, and digital solutions.
-            We wire the buildings that power your business.
+            Turnkey technology solutions—the backbone of modern business, engineered from design through deployment.
           </motion.p>
 
           {/* CTA Buttons */}
