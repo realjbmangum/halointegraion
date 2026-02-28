@@ -3,34 +3,7 @@
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
 import Link from "next/link"
-import { ArrowRight, Users, Target, Lightbulb, Award, Linkedin, Mail } from "lucide-react"
-
-const teamMembers = [
-  {
-    name: "Team Member Name",
-    role: "Founder & CEO",
-    bio: "With over 20 years of experience in low-voltage infrastructure and property technology, leading HALO's vision for innovative digital solutions.",
-    image: null, // Placeholder - will be replaced with actual image
-  },
-  {
-    name: "Team Member Name",
-    role: "Director of Operations",
-    bio: "Expert in project management and implementation, ensuring every installation meets our high standards for quality and client satisfaction.",
-    image: null,
-  },
-  {
-    name: "Team Member Name",
-    role: "Lead Engineer",
-    bio: "Specialized in network design and structured cabling systems, bringing technical excellence to every infrastructure project.",
-    image: null,
-  },
-  {
-    name: "Team Member Name",
-    role: "Business Development",
-    bio: "Focused on building lasting client relationships and identifying opportunities to deliver value through technology solutions.",
-    image: null,
-  },
-]
+import { ArrowRight, Users, Target, Lightbulb, Award } from "lucide-react"
 
 const values = [
   {
@@ -311,96 +284,6 @@ export default function AboutPage() {
                 </motion.div>
               )
             })}
-          </div>
-        </div>
-      </section>
-
-      {/* Meet the Team Section */}
-      <section className="py-24 bg-[#0a0a0f]">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <span className="inline-block text-sm font-medium text-[#a855f7] uppercase tracking-widest mb-4">
-              Our Team
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-              Meet the <span className="text-gradient">Experts</span>
-            </h2>
-            <p className="text-white/60 max-w-2xl mx-auto">
-              Our experienced team brings decades of combined expertise in low-voltage infrastructure,
-              networking, and property technology.
-            </p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {teamMembers.map((member, index) => (
-              <motion.div
-                key={member.role}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="group"
-              >
-                <div className="relative rounded-2xl overflow-hidden bg-[#030014] border border-white/5 hover:border-[#00ffd5]/30 transition-all duration-500">
-                  {/* Image Placeholder */}
-                  <div className="aspect-square relative bg-gradient-to-br from-[#12121a] to-[#0a0a0f] overflow-hidden">
-                    {/* Placeholder avatar */}
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="relative">
-                        <motion.div
-                          animate={{ scale: [1, 1.1, 1], opacity: [0.1, 0.2, 0.1] }}
-                          transition={{ duration: 4, repeat: Infinity }}
-                          className="absolute inset-0 rounded-full bg-[#00ffd5]/10 blur-3xl"
-                          style={{ width: 120, height: 120, left: -60, top: -60 }}
-                        />
-                        <div className="w-24 h-24 rounded-full bg-gradient-to-br from-[#00ffd5]/20 to-[#a855f7]/20 border border-white/10 flex items-center justify-center">
-                          <Users className="w-10 h-10 text-white/30" />
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Grid overlay */}
-                    <div
-                      className="absolute inset-0 opacity-5"
-                      style={{
-                        backgroundImage: `linear-gradient(rgba(0,255,213,0.3) 1px, transparent 1px),
-                          linear-gradient(90deg, rgba(0,255,213,0.3) 1px, transparent 1px)`,
-                        backgroundSize: "20px 20px",
-                      }}
-                    />
-
-                    {/* Hover overlay with social links */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#030014] via-[#030014]/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end justify-center pb-6">
-                      <div className="flex gap-3">
-                        <a
-                          href="#"
-                          className="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white/70 hover:text-[#00ffd5] hover:border-[#00ffd5]/50 transition-colors"
-                        >
-                          <Linkedin size={18} />
-                        </a>
-                        <a
-                          href="#"
-                          className="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white/70 hover:text-[#00ffd5] hover:border-[#00ffd5]/50 transition-colors"
-                        >
-                          <Mail size={18} />
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Content */}
-                  <div className="p-6 text-center">
-                    <h3 className="text-lg font-bold text-white mb-1 group-hover:text-[#00ffd5] transition-colors">
-                      {member.name}
-                    </h3>
-                    <p className="text-sm text-[#00ffd5] mb-3">{member.role}</p>
-                    <p className="text-sm text-white/50 leading-relaxed">
-                      {member.bio}
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
           </div>
         </div>
       </section>

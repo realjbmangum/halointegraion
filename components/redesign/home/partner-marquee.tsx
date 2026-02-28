@@ -4,12 +4,12 @@ import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
 
 const partners = [
-  { name: "Eagle Eye Networks", logo: "/eagle-eye-networks-logo.jpg" },
-  { name: "WorldVue", logo: "/worldvue-logo.jpg" },
-  { name: "GraybaR", logo: "/graybar-logo.jpg" },
-  { name: "OCC", logo: "/occ-logo.jpg" },
-  { name: "Best Buy Business", logo: "/best-buy-business-logo.jpg" },
-  { name: "Verkada", logo: "/verkada-logo.jpg" },
+  { name: "Eagle Eye Networks", logo: "/eagle-eye-networks-logo.jpg", href: "https://www.een.com" },
+  { name: "WorldVue", logo: "/worldvue-logo.jpg", href: "https://worldvue.com" },
+  { name: "GraybaR", logo: "/graybar-logo.jpg", href: "https://www.graybar.com" },
+  { name: "OCC", logo: "/occ-logo.jpg", href: "https://www.occfiber.com" },
+  { name: "Best Buy Business", logo: "/best-buy-business-logo.jpg", href: "https://www.bestbuyforbusiness.com" },
+  { name: "Verkada", logo: "/verkada-logo.jpg", href: "https://www.verkada.com" },
 ]
 
 export function PartnerMarqueeRedesign() {
@@ -49,38 +49,43 @@ export function PartnerMarqueeRedesign() {
         >
           <div className="flex animate-marquee hover:[animation-play-state:paused]">
             {duplicatedPartners.map((partner, index) => (
-              <div
+              <a
                 key={`${partner.name}-${index}`}
+                href={partner.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex-shrink-0 mx-12 flex items-center justify-center group"
               >
-                <div className="relative p-6 rounded-xl bg-white/[0.02] border border-white/5 hover:border-white/10 hover:bg-white/[0.04] transition-all duration-300">
+                <div className="relative p-6 rounded-xl bg-white/[0.02] border border-white/5 hover:border-[#00ffd5]/30 hover:bg-white/[0.04] transition-all duration-300">
                   <img
                     src={partner.logo}
                     alt={partner.name}
-                    className="h-8 w-auto brightness-0 invert opacity-40 group-hover:opacity-80 transition-opacity duration-300"
+                    className="h-10 w-auto brightness-0 invert opacity-60 group-hover:opacity-100 transition-opacity duration-300"
                   />
-                  {/* Subtle glow on hover */}
                   <div className="absolute inset-0 rounded-xl bg-[#00ffd5]/0 group-hover:bg-[#00ffd5]/5 transition-colors duration-300" />
                 </div>
-              </div>
+              </a>
             ))}
           </div>
           {/* Duplicate for seamless loop */}
           <div className="flex animate-marquee hover:[animation-play-state:paused]" aria-hidden="true">
             {duplicatedPartners.map((partner, index) => (
-              <div
+              <a
                 key={`${partner.name}-dup-${index}`}
+                href={partner.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex-shrink-0 mx-12 flex items-center justify-center group"
               >
-                <div className="relative p-6 rounded-xl bg-white/[0.02] border border-white/5 hover:border-white/10 hover:bg-white/[0.04] transition-all duration-300">
+                <div className="relative p-6 rounded-xl bg-white/[0.02] border border-white/5 hover:border-[#00ffd5]/30 hover:bg-white/[0.04] transition-all duration-300">
                   <img
                     src={partner.logo}
                     alt={partner.name}
-                    className="h-8 w-auto brightness-0 invert opacity-40 group-hover:opacity-80 transition-opacity duration-300"
+                    className="h-10 w-auto brightness-0 invert opacity-60 group-hover:opacity-100 transition-opacity duration-300"
                   />
                   <div className="absolute inset-0 rounded-xl bg-[#00ffd5]/0 group-hover:bg-[#00ffd5]/5 transition-colors duration-300" />
                 </div>
-              </div>
+              </a>
             ))}
           </div>
         </motion.div>
