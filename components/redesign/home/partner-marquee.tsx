@@ -4,12 +4,23 @@ import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
 
 const partners = [
-  { name: "Eagle Eye Networks", logo: "/eagle-eye-networks-logo.jpg", href: "https://www.een.com" },
-  { name: "WorldVue", logo: "/worldvue-logo.jpg", href: "https://worldvue.com" },
-  { name: "GraybaR", logo: "/graybar-logo.jpg", href: "https://www.graybar.com" },
-  { name: "OCC", logo: "/occ-logo.jpg", href: "https://www.occfiber.com" },
-  { name: "Best Buy Business", logo: "/best-buy-business-logo.jpg", href: "https://www.bestbuyforbusiness.com" },
-  { name: "Verkada", logo: "/verkada-logo.jpg", href: "https://www.verkada.com" },
+  { name: "Best Buy Business", logo: "/Partner Logos/Best-Buy-Business-136x80.png", href: "https://www.bestbuyforbusiness.com" },
+  { name: "Blueport", logo: "/Partner Logos/blueport.png", href: "#" },
+  { name: "Brivo", logo: "/Partner Logos/Brivo-Web-Logo2-258x80.png", href: "https://www.brivo.com" },
+  { name: "BSR", logo: "/Partner Logos/BSR.jpeg", href: "#" },
+  { name: "Elauwit", logo: "/Partner Logos/elauwit.png", href: "https://loveyournetwork.com" },
+  { name: "Ergos", logo: "/Partner Logos/ergos-312x80.png", href: "https://ergos.com" },
+  { name: "GraybaR", logo: "/Partner Logos/GraybaR-204x80.png", href: "https://www.graybar.com" },
+  { name: "Groove", logo: "/Partner Logos/groove.png", href: "https://www.getgrooven.com" },
+  { name: "Hilton", logo: "/Partner Logos/hilton.png", href: "https://www.hilton.com" },
+  { name: "IHG", logo: "/Partner Logos/IHG.jpeg", href: "https://www.ihg.com" },
+  { name: "KISD", logo: "/Partner Logos/kisd.jpeg", href: "#" },
+  { name: "MAA", logo: "/Partner Logos/maa.jpeg", href: "https://www.maac.com" },
+  { name: "MI", logo: "/Partner Logos/MI.png", href: "#" },
+  { name: "OCC", logo: "/Partner Logos/OCC-297x80.png", href: "https://www.occfiber.com" },
+  { name: "OFS", logo: "/Partner Logos/OFS-logo-142x80.png", href: "https://www.ofs.com" },
+  { name: "SparkPlug IP", logo: "/Partner Logos/SparkPlug-IP-1-267x80.png", href: "https://sparkplugip.com" },
+  { name: "WorldVue", logo: "/Partner Logos/WorldVue-101x80.png", href: "https://worldvue.com" },
 ]
 
 export function PartnerMarqueeRedesign() {

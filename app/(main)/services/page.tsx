@@ -3,6 +3,7 @@
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import {
   Network,
   Shield,
@@ -63,6 +64,7 @@ const services = [
   {
     icon: Network,
     title: "Digital Infrastructure / Structured Cabling",
+    image: "/Services Page/Digital Infrastructure.jpg",
     description:
       "Digital infrastructure and low-voltage technology solutions delivering tangible ROI and enhanced operational performance. We streamline processes, optimize resource allocation, and enhance connectivity.",
     features: [
@@ -73,32 +75,9 @@ const services = [
     ],
   },
   {
-    icon: Shield,
-    title: "Access Control",
-    description:
-      "Cloud-based access control platforms for multi-family, hospitality, and enterprise buildings. Mobile credentials, occupancy monitoring, and seamless integration with your existing systems.",
-    features: [
-      "Mobile credentials",
-      "Self-guided tours",
-      "Occupancy monitoring",
-      "Identity management integration",
-    ],
-  },
-  {
-    icon: Video,
-    title: "Smart Video Surveillance",
-    description:
-      "Harness AI-powered cloud video platforms to revolutionize your surveillance system. Scalable solutions that provide actionable insights and streamline compliance reporting.",
-    features: [
-      "Cloud-based VMS",
-      "AI-powered analytics",
-      "Multi-site management",
-      "Existing camera integration",
-    ],
-  },
-  {
     icon: Wifi,
     title: "Network & Wi-Fi Solutions",
+    image: "/Services Page/wifi.jpg",
     description:
       "Enterprise-grade networking and wireless solutions designed for optimal coverage and performance. From site surveys to implementation, we deliver reliable connectivity that scales with your business.",
     features: [
@@ -109,20 +88,35 @@ const services = [
     ],
   },
   {
-    icon: Phone,
-    title: "VoIP Phone Services",
+    icon: Video,
+    title: "Smart Video Surveillance",
+    image: "/Services Page/surveillance.jpg",
     description:
-      "Cloud-based phone systems with 99.99% SLA and 24/7 support. Innovative, cost-effective, and feature-rich VoIP designed for easy deployment and simple scalability.",
+      "Harness AI-powered cloud video platforms to revolutionize your surveillance system. Scalable solutions that provide actionable insights and streamline compliance reporting.",
     features: [
-      "99.99% uptime SLA",
-      "Call recording",
-      "Auto attendant",
-      "Voicemail to email",
+      "Cloud-based VMS",
+      "AI-powered analytics",
+      "Multi-site management",
+      "Existing camera integration",
+    ],
+  },
+  {
+    icon: Shield,
+    title: "Access Control",
+    image: "/Services Page/access control.jpg",
+    description:
+      "Cloud-based access control platforms for multi-family, hospitality, and enterprise buildings. Mobile credentials, occupancy monitoring, and seamless integration with your existing systems.",
+    features: [
+      "Mobile credentials",
+      "Self-guided tours",
+      "Occupancy monitoring",
+      "Identity management integration",
     ],
   },
   {
     icon: Building2,
     title: "Prop-Tech Consulting",
+    image: "/Services Page/prop-tech.jpg",
     description:
       "Your trusted resource in property technology. We advise on leveraging technology to optimize property management, investment analysis, tenant experience, and sustainability.",
     features: [
@@ -135,6 +129,7 @@ const services = [
   {
     icon: Speaker,
     title: "Audio & Video Solutions",
+    image: "/Services Page/av.jpg",
     description:
       "Top-tier audiovisual solutions crafted by our in-house design team. We transform concepts into reality using state-of-the-art technology from industry-leading partners.",
     features: [
@@ -142,6 +137,19 @@ const services = [
       "Distributed audio",
       "Video walls",
       "Control systems",
+    ],
+  },
+  {
+    icon: Phone,
+    title: "VoIP Phone Services",
+    image: "/Services Page/voip.jpg",
+    description:
+      "Cloud-based phone systems with 99.99% SLA and 24/7 support. Innovative, cost-effective, and feature-rich VoIP designed for easy deployment and simple scalability.",
+    features: [
+      "99.99% uptime SLA",
+      "Call recording",
+      "Auto attendant",
+      "Voicemail to email",
     ],
   },
 ]
@@ -386,29 +394,15 @@ export default function ServicesPage() {
 
                   {/* Visual */}
                   <div className={isEven ? "lg:order-2" : "lg:order-1"}>
-                    <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-[#0a0a0f] to-[#12121a] border border-white/5">
-                      {/* Decorative elements */}
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="relative">
-                          <motion.div
-                            animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.3, 0.2] }}
-                            transition={{ duration: 4, repeat: Infinity }}
-                            className="absolute inset-0 rounded-full bg-[#00ffd5]/20 blur-3xl"
-                            style={{ width: 200, height: 200, left: -100, top: -100 }}
-                          />
-                          <Icon className="w-24 h-24 text-[#00ffd5]/30" />
-                        </div>
-                      </div>
-
-                      {/* Grid overlay */}
-                      <div
-                        className="absolute inset-0 opacity-10"
-                        style={{
-                          backgroundImage: `linear-gradient(rgba(0,255,213,0.3) 1px, transparent 1px),
-                            linear-gradient(90deg, rgba(0,255,213,0.3) 1px, transparent 1px)`,
-                          backgroundSize: "30px 30px",
-                        }}
+                    <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-white/5">
+                      <Image
+                        src={service.image}
+                        alt={service.title}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 1024px) 100vw, 50vw"
                       />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#030014]/40 to-transparent" />
                     </div>
                   </div>
                 </motion.div>

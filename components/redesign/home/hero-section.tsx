@@ -145,7 +145,7 @@ export function HeroRedesign() {
               {/* Outer ring pulse */}
               <motion.div
                 className="absolute inset-0 rounded-full border border-[#00ffd5]/30"
-                style={{ width: 80, height: 80, left: -16, top: -16 }}
+                style={{ width: 100, height: 100, left: -18, top: -18 }}
                 animate={{ scale: [1, 1.5, 1], opacity: [0.3, 0, 0.3] }}
                 transition={{ duration: 3, repeat: Infinity, delay: node.delay }}
               />
@@ -156,8 +156,8 @@ export function HeroRedesign() {
                 <div className="absolute inset-0 rounded-full bg-[#00ffd5]/20 blur-xl scale-150" />
 
                 {/* Icon container */}
-                <div className="relative w-12 h-12 rounded-full bg-[#0a0a0f] border border-[#00ffd5]/50 flex items-center justify-center">
-                  <Icon className="w-6 h-6 text-[#00ffd5]" />
+                <div className="relative w-16 h-16 rounded-full bg-[#0a0a0f] border border-[#00ffd5]/50 flex items-center justify-center">
+                  <Icon className="w-9 h-9 text-[#00ffd5]" />
                 </div>
               </div>
 

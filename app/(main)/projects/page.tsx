@@ -3,72 +3,23 @@
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
 import Link from "next/link"
-import { ArrowRight, Building2, Hotel, Warehouse, MapPin } from "lucide-react"
+import { ArrowRight, Building2, Hotel, Warehouse, MapPin, Play } from "lucide-react"
 
-const projects = [
-  {
-    id: 1,
-    title: "Luxury Multi-Family Complex",
-    category: "Multi-Family",
-    location: "Houston, TX",
-    description: "Complete low-voltage infrastructure for 350-unit luxury apartment community including structured cabling, access control, video surveillance, and Wi-Fi throughout common areas.",
-    services: ["Structured Cabling", "Access Control", "Video Surveillance", "Wi-Fi Networks"],
-    image: null, // Placeholder - will be replaced with actual image
-    stats: { units: "350", sqft: "425,000" },
-  },
-  {
-    id: 2,
-    title: "Boutique Hotel & Conference Center",
-    category: "Hospitality",
-    location: "Austin, TX",
-    description: "Full technology refresh for a boutique hotel featuring cloud-based access control, enterprise Wi-Fi, VoIP phone systems, and integrated AV solutions for conference facilities.",
-    services: ["Access Control", "Wi-Fi Networks", "VoIP Phones", "Audio & Video"],
-    image: null,
-    stats: { rooms: "180", sqft: "95,000" },
-  },
-  {
-    id: 3,
-    title: "Corporate Headquarters Buildout",
-    category: "Enterprise",
-    location: "Dallas, TX",
-    description: "Ground-up infrastructure deployment for new corporate campus including fiber backbone, Cat6A throughout, enterprise security systems, and smart building integration.",
-    services: ["Fiber Optic", "Structured Cabling", "Video Surveillance", "Access Control"],
-    image: null,
-    stats: { floors: "12", sqft: "280,000" },
-  },
-  {
-    id: 4,
-    title: "Mixed-Use Development",
-    category: "Multi-Family",
-    location: "San Antonio, TX",
-    description: "Integrated technology solution for a mixed-use property combining retail, office, and residential spaces with unified access control and network infrastructure.",
-    services: ["Structured Cabling", "Access Control", "Network Design", "Wi-Fi Networks"],
-    image: null,
-    stats: { units: "220", retail: "45,000 sqft" },
-  },
-  {
-    id: 5,
-    title: "Resort & Spa Network Upgrade",
-    category: "Hospitality",
-    location: "Galveston, TX",
-    description: "Complete network modernization for oceanfront resort including high-density Wi-Fi, cloud VMS, mobile key access, and back-of-house infrastructure improvements.",
-    services: ["Wi-Fi Networks", "Video Surveillance", "Access Control", "VoIP Phones"],
-    image: null,
-    stats: { rooms: "320", amenities: "15+" },
-  },
-  {
-    id: 6,
-    title: "Industrial Distribution Center",
-    category: "Enterprise",
-    location: "Katy, TX",
-    description: "Large-scale warehouse technology deployment featuring industrial-grade Wi-Fi, perimeter security, access control, and integration with logistics management systems.",
-    services: ["Wi-Fi Networks", "Video Surveillance", "Access Control", "Structured Cabling"],
-    image: null,
-    stats: { sqft: "750,000", docks: "48" },
-  },
-]
+// TODO: Replace with real project data from Kyle
+const projects: {
+  id: number
+  title: string
+  category: string
+  location: string
+  description: string
+  services: string[]
+  image: string | null
+  stats: Record<string, string>
+}[] = []
 
-const categories = ["All", "Multi-Family", "Hospitality", "Enterprise"]
+// TODO: Populate with YouTube video IDs once Kyle uploads
+// Format: { id: "YouTube video ID", title: "...", description: "..." }
+const videos: { id: string; title: string; description: string }[] = []
 
 export default function ProjectsPage() {
   const heroRef = useRef(null)
@@ -145,122 +96,103 @@ export default function ProjectsPage() {
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#030014] to-transparent" />
       </section>
 
-      {/* Stats Bar */}
-      <section className="py-12 bg-[#0a0a0f] border-y border-white/5">
+      {/* Video Gallery */}
+      <section className="py-24 bg-[#030014]">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {[
-              { value: "500+", label: "Projects Completed" },
-              { value: "10M+", label: "Sq Ft Deployed" },
-              { value: "50+", label: "Years Experience" },
-              { value: "99%", label: "Client Satisfaction" },
-            ].map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="text-center"
-              >
-                <div className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-[#00ffd5] to-[#a855f7] bg-clip-text text-transparent mb-1">
-                  {stat.value}
-                </div>
-                <div className="text-sm text-white/50">{stat.label}</div>
-              </motion.div>
-            ))}
+          <div className="text-center mb-16">
+            <span className="inline-block text-sm font-medium text-[#00ffd5] uppercase tracking-widest mb-4">
+              See Our Work
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+              Halo Integration in Action
+            </h2>
+            <p className="text-white/50 max-w-xl mx-auto">
+              A look at some of our recent projects, from structured cabling to full smart-building deployments.
+            </p>
           </div>
+
+          {videos.length > 0 ? (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {videos.map((video, index) => (
+                <motion.div
+                  key={video.id}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="group rounded-2xl overflow-hidden border border-white/5 hover:border-[#00ffd5]/30 transition-all duration-500 bg-[#0a0a0f]"
+                >
+                  <div className="aspect-video">
+                    <iframe
+                      src={`https://www.youtube.com/embed/${video.id}`}
+                      title={video.title}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      className="w-full h-full"
+                    />
+                  </div>
+                  <div className="p-5">
+                    <h3 className="text-lg font-bold text-white mb-2 group-hover:text-[#00ffd5] transition-colors">
+                      {video.title}
+                    </h3>
+                    {video.description && (
+                      <p className="text-sm text-white/50">{video.description}</p>
+                    )}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          ) : (
+            <div className="flex flex-col items-center justify-center py-24 text-center">
+              <div className="w-20 h-20 rounded-full bg-[#00ffd5]/10 border border-[#00ffd5]/20 flex items-center justify-center mb-6">
+                <Play className="w-8 h-8 text-[#00ffd5]/60" />
+              </div>
+              <p className="text-white/40 text-lg">Videos coming soon.</p>
+            </div>
+          )}
         </div>
       </section>
 
-      {/* Projects Grid */}
-      <section className="py-24 bg-[#030014]">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Section Header */}
-          <div className="text-center mb-16">
-            <span className="inline-block text-sm font-medium text-[#00ffd5] uppercase tracking-widest mb-4">
-              Featured Projects
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-white">
-              Recent Installations
-            </h2>
-          </div>
-
-          {/* Projects Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
-              <motion.div
-                key={project.id}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="group"
-              >
-                <div className="relative rounded-2xl overflow-hidden bg-[#0a0a0f] border border-white/5 hover:border-[#00ffd5]/30 transition-all duration-500">
-                  {/* Image Placeholder */}
-                  <div className="aspect-[4/3] relative bg-gradient-to-br from-[#12121a] to-[#0a0a0f] overflow-hidden">
-                    {/* Placeholder pattern */}
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="relative">
-                        <motion.div
-                          animate={{ scale: [1, 1.1, 1], opacity: [0.1, 0.2, 0.1] }}
-                          transition={{ duration: 4, repeat: Infinity }}
-                          className="absolute inset-0 rounded-full bg-[#00ffd5]/10 blur-3xl"
-                          style={{ width: 150, height: 150, left: -75, top: -75 }}
-                        />
-                        {project.category === "Multi-Family" && <Building2 className="w-16 h-16 text-[#00ffd5]/20" />}
-                        {project.category === "Hospitality" && <Hotel className="w-16 h-16 text-[#a855f7]/20" />}
-                        {project.category === "Enterprise" && <Warehouse className="w-16 h-16 text-[#00ffd5]/20" />}
-                      </div>
-                    </div>
-
-                    {/* Grid overlay */}
-                    <div
-                      className="absolute inset-0 opacity-10"
-                      style={{
-                        backgroundImage: `linear-gradient(rgba(0,255,213,0.3) 1px, transparent 1px),
-                          linear-gradient(90deg, rgba(0,255,213,0.3) 1px, transparent 1px)`,
-                        backgroundSize: "30px 30px",
-                      }}
-                    />
-
-                    {/* Category badge */}
-                    <div className="absolute top-4 left-4">
-                      <span className="px-3 py-1 rounded-full text-xs font-medium bg-[#00ffd5]/10 text-[#00ffd5] border border-[#00ffd5]/20">
-                        {project.category}
-                      </span>
-                    </div>
-
-                    {/* Hover overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#030014] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  </div>
-
-                  {/* Content */}
+      {/* Projects Grid — shows only when real projects are added */}
+      {projects.length > 0 && (
+        <section className="py-24 bg-[#0a0a0f]">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <span className="inline-block text-sm font-medium text-[#a855f7] uppercase tracking-widest mb-4">
+                Featured Projects
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-bold text-white">
+                Recent Installations
+              </h2>
+            </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {projects.map((project, index) => (
+                <motion.div
+                  key={project.id}
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="group rounded-2xl overflow-hidden bg-[#0a0a0f] border border-white/5 hover:border-[#00ffd5]/30 transition-all duration-500"
+                >
+                  {project.image && (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img src={project.image} alt={project.title} className="w-full aspect-[4/3] object-cover" />
+                  )}
                   <div className="p-6">
-                    {/* Location */}
                     <div className="flex items-center gap-1 text-sm text-white/40 mb-2">
                       <MapPin className="w-3 h-3" />
                       <span>{project.location}</span>
                     </div>
-
-                    {/* Title */}
                     <h3 className="text-xl font-bold text-white mb-3 group-hover:text-[#00ffd5] transition-colors">
                       {project.title}
                     </h3>
-
-                    {/* Description */}
                     <p className="text-sm text-white/50 leading-relaxed mb-4 line-clamp-3">
                       {project.description}
                     </p>
-
-                    {/* Services */}
-                    <div className="flex flex-wrap gap-2 mb-4">
+                    <div className="flex flex-wrap gap-2">
                       {project.services.slice(0, 3).map((service) => (
-                        <span
-                          key={service}
-                          className="px-2 py-1 text-xs rounded-md bg-white/5 text-white/60"
-                        >
+                        <span key={service} className="px-2 py-1 text-xs rounded-md bg-white/5 text-white/60">
                           {service}
                         </span>
                       ))}
@@ -270,23 +202,13 @@ export default function ProjectsPage() {
                         </span>
                       )}
                     </div>
-
-                    {/* Stats */}
-                    <div className="flex gap-6 pt-4 border-t border-white/5">
-                      {Object.entries(project.stats).map(([key, value]) => (
-                        <div key={key}>
-                          <div className="text-lg font-bold text-[#00ffd5]">{value}</div>
-                          <div className="text-xs text-white/40 capitalize">{key}</div>
-                        </div>
-                      ))}
-                    </div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* CTA Section */}
       <section className="py-24 bg-[#0a0a0f] relative overflow-hidden">
