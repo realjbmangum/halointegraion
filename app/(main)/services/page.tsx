@@ -64,7 +64,7 @@ const services = [
   {
     icon: Network,
     title: "Digital Infrastructure / Structured Cabling",
-    image: "/Services Page/Digital Infrastructure.jpg",
+    image: "/services/digital-infrastructure.jpg",
     description:
       "Digital infrastructure and low-voltage technology solutions delivering tangible ROI and enhanced operational performance. We streamline processes, optimize resource allocation, and enhance connectivity.",
     features: [
@@ -77,7 +77,7 @@ const services = [
   {
     icon: Wifi,
     title: "Network & Wi-Fi Solutions",
-    image: "/Services Page/wifi.jpg",
+    image: "/services/wifi.jpg",
     description:
       "Enterprise-grade networking and wireless solutions designed for optimal coverage and performance. From site surveys to implementation, we deliver reliable connectivity that scales with your business.",
     features: [
@@ -90,7 +90,7 @@ const services = [
   {
     icon: Video,
     title: "Smart Video Surveillance",
-    image: "/Services Page/surveillance.jpg",
+    image: "/services/surveillance.jpg",
     description:
       "Harness AI-powered cloud video platforms to revolutionize your surveillance system. Scalable solutions that provide actionable insights and streamline compliance reporting.",
     features: [
@@ -103,7 +103,7 @@ const services = [
   {
     icon: Shield,
     title: "Access Control",
-    image: "/Services Page/access control.jpg",
+    image: "/services/access-control.jpg",
     description:
       "Cloud-based access control platforms for multi-family, hospitality, and enterprise buildings. Mobile credentials, occupancy monitoring, and seamless integration with your existing systems.",
     features: [
@@ -116,7 +116,7 @@ const services = [
   {
     icon: Building2,
     title: "Prop-Tech Consulting",
-    image: "/Services Page/prop-tech.jpg",
+    image: "/services/prop-tech.jpg",
     description:
       "Your trusted resource in property technology. We advise on leveraging technology to optimize property management, investment analysis, tenant experience, and sustainability.",
     features: [
@@ -129,7 +129,7 @@ const services = [
   {
     icon: Speaker,
     title: "Audio & Video Solutions",
-    image: "/Services Page/av.jpg",
+    image: "/services/av.jpg",
     description:
       "Top-tier audiovisual solutions crafted by our in-house design team. We transform concepts into reality using state-of-the-art technology from industry-leading partners.",
     features: [
@@ -142,7 +142,7 @@ const services = [
   {
     icon: Phone,
     title: "VoIP Phone Services",
-    image: "/Services Page/voip.jpg",
+    image: "/services/voip.jpg",
     description:
       "Cloud-based phone systems with 99.99% SLA and 24/7 support. Innovative, cost-effective, and feature-rich VoIP designed for easy deployment and simple scalability.",
     features: [

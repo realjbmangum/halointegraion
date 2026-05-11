@@ -1,0 +1,52 @@
+## Session - 2026-03-01
+
+**Completed:**
+- Applied all partner email feedback to /redesign version
+- Promoted /redesign to the live main site (halointegration.com)
+- Fixed Cloudflare Pages CI (had been failing for 2 months due to invalid `build` key in wrangler.json)
+- Fixed git remote URL (repo renamed from halointegraion → site-halointegration)
+- Deleted duplicate Cloudflare Pages project (halointegraion typo project)
+- Fixed wrangler.json project name to match live project (halointegration)
+
+**Email Changes Applied (to redesign → now live):**
+- Home hero: icons bigger, Structured Cabling moved to top of ring, "Infrastructure" → "Technology Strategy & Consulting" (Briefcase icon), removed "Low Voltage & Digital Infrastructure" badge, updated tagline last sentence
+- Services page: new tagline "End-to-End Technology Services", new sub-tagline, updated Multi-Family/Hospitality/Enterprise descriptions, brighter subtext
+- Contact page: address corrected to STE #103
+- Logo: updated to MASTER LOGO_ALT_WHT_V2.png (vertical white, 500x500), larger in nav
+
+**Additional Changes:**
+- About page: removed "Meet the Experts" placeholder section
+- Partner marquee: logos now link to vendor sites, bigger (h-10), more visible (opacity-60)
+- Redesign CSS imported into root layout so .text-gradient, .animate-marquee etc. work everywhere
+
+**Files Changed (key):**
+- components/redesign/home/hero-section.tsx - icon ring, badge, tagline
+- components/redesign/home/partner-marquee.tsx - linked logos, visibility
+- components/redesign/layout/glass-navigation.tsx - new logo, root links
+- components/redesign/layout/footer.tsx - removed "Back to Original" link, root links
+- app/(main)/layout.tsx - now uses GlassNavigation + FooterRedesign
+- app/(main)/page.tsx - now imports redesign home components
+- app/(main)/about/page.tsx - redesign version, Meet the Experts removed
+- app/(main)/services/page.tsx - redesign version with email updates
+- app/(main)/contact/page.tsx - redesign version, STE #103
+- app/(main)/projects/page.tsx - new page (from redesign)
+- app/layout.tsx - imports redesign globals.css
+- app/redesign/services/page.tsx - email updates applied
+- wrangler.json - fixed project name, removed invalid build key
+- public/MASTER LOGO_ALT_WHT_V2.png - new logo file added
+
+**Decisions:**
+- Kept /redesign route intact (now has root links, effectively deprecated)
+- Deploy strategy: wrangler pages deploy out (direct static deploy) because CI was unreliable; CI now fixed so future git pushes should auto-deploy
+- Used `output: 'export'` static export mode (already configured in next.config)
+
+**Pending:**
+- [ ] Service section images (partner still needs to share the folder link)
+- [ ] Team photos for About page when ready (section removed for now)
+
+**Gotchas:**
+- wrangler.json `build.command` key is NOT valid for Pages projects — caused 2 months of CI failures
+- Next.js static export outputs to `out/` not `.next/` — Cloudflare Pages build output dir must be set to `out`
+- Cloudflare CDN caches aggressively — hard refresh (Cmd+Shift+R) needed to see changes
+- Logo file has spaces in name ("MASTER LOGO_ALT_WHT_V2.png") — works fine with Next.js Image src
+- After promoting redesign to main, all /redesign/ hrefs in components needed updating to root paths (used sed batch replace)
