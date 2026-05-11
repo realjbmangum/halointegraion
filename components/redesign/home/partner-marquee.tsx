@@ -5,18 +5,14 @@ import { useRef } from "react"
 
 const partners = [
   { name: "Best Buy Business", logo: "/partner-logos/Best-Buy-Business-136x80.png", href: "https://www.bestbuyforbusiness.com" },
-  { name: "Blueport", logo: "/partner-logos/blueport.png", href: "#" },
   { name: "Brivo", logo: "/partner-logos/Brivo-Web-Logo2-258x80.png", href: "https://www.brivo.com" },
-  { name: "BSR", logo: "/partner-logos/BSR.jpeg", href: "#" },
   { name: "Elauwit", logo: "/partner-logos/elauwit.png", href: "https://loveyournetwork.com" },
   { name: "Ergos", logo: "/partner-logos/ergos-312x80.png", href: "https://ergos.com" },
   { name: "GraybaR", logo: "/partner-logos/GraybaR-204x80.png", href: "https://www.graybar.com" },
   { name: "Groove", logo: "/partner-logos/groove.png", href: "https://www.getgrooven.com" },
   { name: "Hilton", logo: "/partner-logos/hilton.png", href: "https://www.hilton.com" },
   { name: "IHG", logo: "/partner-logos/IHG.jpeg", href: "https://www.ihg.com" },
-  { name: "KISD", logo: "/partner-logos/kisd.jpeg", href: "#" },
   { name: "MAA", logo: "/partner-logos/maa.jpeg", href: "https://www.maac.com" },
-  { name: "MI", logo: "/partner-logos/MI.png", href: "#" },
   { name: "OCC", logo: "/partner-logos/OCC-297x80.png", href: "https://www.occfiber.com" },
   { name: "OFS", logo: "/partner-logos/OFS-logo-142x80.png", href: "https://www.ofs.com" },
   { name: "SparkPlug IP", logo: "/partner-logos/SparkPlug-IP-1-267x80.png", href: "https://sparkplugip.com" },
@@ -71,7 +67,7 @@ export function PartnerMarqueeRedesign() {
                   <img
                     src={partner.logo}
                     alt={partner.name}
-                    className="h-10 w-auto brightness-0 invert opacity-60 group-hover:opacity-100 transition-opacity duration-300"
+                    className="h-10 w-auto opacity-70 group-hover:opacity-100 transition-opacity duration-300"
                   />
                   <div className="absolute inset-0 rounded-xl bg-[#00ffd5]/0 group-hover:bg-[#00ffd5]/5 transition-colors duration-300" />
                 </div>
@@ -92,7 +88,7 @@ export function PartnerMarqueeRedesign() {
                   <img
                     src={partner.logo}
                     alt={partner.name}
-                    className="h-10 w-auto brightness-0 invert opacity-60 group-hover:opacity-100 transition-opacity duration-300"
+                    className="h-10 w-auto opacity-70 group-hover:opacity-100 transition-opacity duration-300"
                   />
                   <div className="absolute inset-0 rounded-xl bg-[#00ffd5]/0 group-hover:bg-[#00ffd5]/5 transition-colors duration-300" />
                 </div>
