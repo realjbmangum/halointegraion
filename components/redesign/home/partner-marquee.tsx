@@ -61,13 +61,13 @@ export function PartnerMarqueeRedesign() {
                 href={partner.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-shrink-0 mx-12 flex items-center justify-center group"
+                className="flex-shrink-0 mx-6 flex items-center justify-center group"
               >
-                <div className="relative p-6 rounded-xl bg-white/[0.02] border border-white/5 hover:border-[#00ffd5]/30 hover:bg-white/[0.04] transition-all duration-300">
+                <div className="relative w-44 h-20 rounded-xl bg-white/[0.02] border border-white/5 hover:border-[#00ffd5]/30 hover:bg-white/[0.04] transition-all duration-300 flex items-center justify-center p-4">
                   <img
                     src={partner.logo}
                     alt={partner.name}
-                    className="h-10 w-auto opacity-70 group-hover:opacity-100 transition-opacity duration-300"
+                    className="w-full h-full object-contain brightness-0 invert opacity-60 group-hover:opacity-100 transition-opacity duration-300"
                   />
                   <div className="absolute inset-0 rounded-xl bg-[#00ffd5]/0 group-hover:bg-[#00ffd5]/5 transition-colors duration-300" />
                 </div>
@@ -82,13 +82,13 @@ export function PartnerMarqueeRedesign() {
                 href={partner.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-shrink-0 mx-12 flex items-center justify-center group"
+                className="flex-shrink-0 mx-6 flex items-center justify-center group"
               >
-                <div className="relative p-6 rounded-xl bg-white/[0.02] border border-white/5 hover:border-[#00ffd5]/30 hover:bg-white/[0.04] transition-all duration-300">
+                <div className="relative w-44 h-20 rounded-xl bg-white/[0.02] border border-white/5 hover:border-[#00ffd5]/30 hover:bg-white/[0.04] transition-all duration-300 flex items-center justify-center p-4">
                   <img
                     src={partner.logo}
                     alt={partner.name}
-                    className="h-10 w-auto opacity-70 group-hover:opacity-100 transition-opacity duration-300"
+                    className="w-full h-full object-contain brightness-0 invert opacity-60 group-hover:opacity-100 transition-opacity duration-300"
                   />
                   <div className="absolute inset-0 rounded-xl bg-[#00ffd5]/0 group-hover:bg-[#00ffd5]/5 transition-colors duration-300" />
                 </div>
