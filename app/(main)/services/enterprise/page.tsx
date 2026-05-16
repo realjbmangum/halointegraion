@@ -57,7 +57,7 @@ export default function EnterprisePage() {
             </div>
             <div className="relative h-[400px] rounded-lg overflow-hidden">
               <img
-                src="/enterprise-data-center.jpg"
+                src="/modern-technology-infrastructure-consulting-team-c.jpg"
                 alt="Enterprise solutions"
                 className="w-full h-full object-cover"
               />

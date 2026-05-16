@@ -57,7 +57,7 @@ export default function DigitalSolutionsPage() {
             </div>
             <div className="relative h-[400px] rounded-lg overflow-hidden">
               <img
-                src="/software-development-coding.jpg"
+                src="/modern-technology-infrastructure-network-abstract-.jpg"
                 alt="Digital solutions"
                 className="w-full h-full object-cover"
               />

@@ -57,7 +57,7 @@ export default function HospitalityPage() {
               </Button>
             </div>
             <div className="relative h-[400px] rounded-lg overflow-hidden">
-              <img src="/luxury-hotel-lobby.jpg" alt="Hospitality technology" className="w-full h-full object-cover" />
+              <img src="/professional-technology-team-working-on-infrastruc.jpg" alt="Hospitality technology" className="w-full h-full object-cover" />
             </div>
           </div>
         </div>

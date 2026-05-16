@@ -59,7 +59,7 @@ export default function MultiFamilyPage() {
             </div>
             <div className="relative h-[400px] rounded-lg overflow-hidden">
               <img
-                src="/modern-apartment-building.jpg"
+                src="/modern-office-building-technology.jpg"
                 alt="Multi-family property"
                 className="w-full h-full object-cover"
               />

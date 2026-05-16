@@ -59,7 +59,7 @@ export default function InfrastructureConsultingPage() {
             </div>
             <div className="relative h-[400px] rounded-lg overflow-hidden">
               <img
-                src="/network-infrastructure-datacenter.jpg"
+                src="/services/digital-infrastructure.jpg"
                 alt="Infrastructure consulting"
                 className="w-full h-full object-cover"
               />

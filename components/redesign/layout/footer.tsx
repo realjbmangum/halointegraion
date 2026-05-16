@@ -18,6 +18,7 @@ export function FooterRedesign() {
       { label: "About Us", href: "/about" },
       { label: "Services", href: "/services" },
       { label: "Projects", href: "/projects" },
+      { label: "Videos", href: "/videos" },
       { label: "Contact", href: "/contact" },
     ],
   }

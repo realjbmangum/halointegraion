@@ -22,6 +22,7 @@ export function GlassNavigation() {
     { href: "/", label: "Home" },
     { href: "/services", label: "Services" },
     { href: "/projects", label: "Projects" },
+    { href: "/videos", label: "Videos" },
     { href: "/about", label: "About" },
   ]
 

@@ -4,14 +4,14 @@ import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
 
 const partners = [
-  { name: "Best Buy Business", logo: "/partner-logos/Best-Buy-Business-136x80.png", href: "https://www.bestbuyforbusiness.com" },
-  { name: "Brivo", logo: "/partner-logos/Brivo-Web-Logo2-258x80.png", href: "https://www.brivo.com" },
-  { name: "Ergos", logo: "/partner-logos/ergos-312x80.png", href: "https://ergos.com" },
-  { name: "GraybaR", logo: "/partner-logos/GraybaR-204x80.png", href: "https://www.graybar.com" },
-  { name: "OCC", logo: "/partner-logos/OCC-297x80.png", href: "https://www.occfiber.com" },
-  { name: "OFS", logo: "/partner-logos/OFS-logo-142x80.png", href: "https://www.ofs.com" },
-  { name: "SparkPlug IP", logo: "/partner-logos/SparkPlug-IP-1-267x80.png", href: "https://sparkplugip.com" },
-  { name: "WorldVue", logo: "/partner-logos/WorldVue-101x80.png", href: "https://worldvue.com" },
+  { name: "Best Buy Business", logo: "/partner-logos/Best-Buy-Business-136x80.png" },
+  { name: "Brivo", logo: "/partner-logos/Brivo-Web-Logo2-258x80.png" },
+  { name: "Ergos", logo: "/partner-logos/ergos-312x80.png" },
+  { name: "GraybaR", logo: "/partner-logos/GraybaR-204x80.png" },
+  { name: "OCC", logo: "/partner-logos/OCC-297x80.png" },
+  { name: "OFS", logo: "/partner-logos/OFS-logo-142x80.png" },
+  { name: "SparkPlug IP", logo: "/partner-logos/SparkPlug-IP-1-267x80.png" },
+  { name: "WorldVue", logo: "/partner-logos/WorldVue-101x80.png" },
 ]
 
 export function PartnerMarqueeRedesign() {
@@ -49,45 +49,37 @@ export function PartnerMarqueeRedesign() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="flex"
         >
-          <div className="flex animate-marquee hover:[animation-play-state:paused]">
+          <div className="flex animate-marquee">
             {duplicatedPartners.map((partner, index) => (
-              <a
+              <div
                 key={`${partner.name}-${index}`}
-                href={partner.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-shrink-0 mx-6 flex items-center justify-center group"
+                className="flex-shrink-0 mx-6 flex items-center justify-center"
               >
-                <div className="relative w-44 h-20 rounded-xl bg-white/[0.02] border border-white/5 hover:border-[#00ffd5]/30 hover:bg-white/[0.04] transition-all duration-300 flex items-center justify-center p-4">
+                <div className="w-44 h-20 flex items-center justify-center p-4">
                   <img
                     src={partner.logo}
                     alt={partner.name}
-                    className="w-full h-full object-contain brightness-0 invert opacity-60 group-hover:opacity-100 transition-opacity duration-300"
+                    className="w-full h-full object-contain brightness-0 invert opacity-60"
                   />
-                  <div className="absolute inset-0 rounded-xl bg-[#00ffd5]/0 group-hover:bg-[#00ffd5]/5 transition-colors duration-300" />
                 </div>
-              </a>
+              </div>
             ))}
           </div>
           {/* Duplicate for seamless loop */}
-          <div className="flex animate-marquee hover:[animation-play-state:paused]" aria-hidden="true">
+          <div className="flex animate-marquee" aria-hidden="true">
             {duplicatedPartners.map((partner, index) => (
-              <a
+              <div
                 key={`${partner.name}-dup-${index}`}
-                href={partner.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-shrink-0 mx-6 flex items-center justify-center group"
+                className="flex-shrink-0 mx-6 flex items-center justify-center"
               >
-                <div className="relative w-44 h-20 rounded-xl bg-white/[0.02] border border-white/5 hover:border-[#00ffd5]/30 hover:bg-white/[0.04] transition-all duration-300 flex items-center justify-center p-4">
+                <div className="w-44 h-20 flex items-center justify-center p-4">
                   <img
                     src={partner.logo}
                     alt={partner.name}
-                    className="w-full h-full object-contain brightness-0 invert opacity-60 group-hover:opacity-100 transition-opacity duration-300"
+                    className="w-full h-full object-contain brightness-0 invert opacity-60"
                   />
-                  <div className="absolute inset-0 rounded-xl bg-[#00ffd5]/0 group-hover:bg-[#00ffd5]/5 transition-colors duration-300" />
                 </div>
-              </a>
+              </div>
             ))}
           </div>
         </motion.div>

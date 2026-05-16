@@ -1,3 +1,37 @@
+## Session - 2026-05-16
+
+**Completed (Kyle email feedback round 2):**
+- Partner marquee: removed hyperlinks per Kyle — logos now just scroll, no links, no hover/box chrome. Plain white logos on the track.
+- /projects: removed the YouTube video gallery (Kyle clarified those videos are social-media content, not project videos — project videos don't exist). Restored the previous-website card format: property image, name, location, unit/room count, 1-2 sentence write-up. Card structure pulled from git (commit 9cc734b). Data array left empty with a documented example shape + clean "coming soon" empty state — Kyle is sending real project content.
+- Service sub-pages: fixed broken hero images on all 5 (/services/digital-solutions, enterprise, hospitality, infrastructure-consulting, multi-family). They referenced /software-development-coding.jpg, /luxury-hotel-lobby.jpg, /enterprise-data-center.jpg, /network-infrastructure-datacenter.jpg, /modern-apartment-building.jpg — none of which exist in public/. Repointed each to an existing image. This is the "broken header image in each section" Kyle reported.
+
+**Files Changed:**
+- components/redesign/home/partner-marquee.tsx — removed <a> links, hover chrome, href data
+- app/(main)/projects/page.tsx — removed video gallery, restored project card grid (image/name/units/blurb), empty state
+- app/(main)/services/{digital-solutions,enterprise,hospitality,infrastructure-consulting,multi-family}/page.tsx — fixed broken hero img src
+
+**Decisions:**
+- Kyle confirmed: no hyperlinks on partner logos, no project videos. /projects goes back to property cards.
+- Service sub-pages: user chose "just fix broken images" — left old off-brand design intact, only unbroke the images. Kyle reviewing this evening; he flagged these pages "need to be built out further" — likely a follow-up.
+
+**Added later same session:**
+- New /videos page (app/(main)/videos/page.tsx) — curated 3x3 grid of YouTube embeds from Kyle's channel @halo_integration (channel ID UCEY19QSOhT8QZjPT0gv5u5w) + "View all on YouTube" button. Curated approach chosen over auto-feed (static site, no API key, marketing site should curate). 9 videos hand-picked from the channel's 22; swap IDs in the `videos` array to re-curate. Uses youtube-nocookie.com + loading="lazy".
+- "Videos" link added to nav (glass-navigation.tsx) and footer company list (footer.tsx).
+- Confirmed: NO real project data exists locally — searched whole repo + ~/Downloads, ~/Desktop, ~/Documents. The Dec 22 WORK-LOG notes a folder Kyle named "Won Project Images for Website" that was never added. /projects has only ever had fake placeholder cards. Real data must come from Kyle / that folder.
+
+**Next Steps:**
+- [ ] Get the "Won Project Images for Website" folder from Kyle (images + names/unit counts/blurbs) → populate projects[] array in app/(main)/projects/page.tsx (grid already built)
+- [ ] Kyle reviewing service sub-pages this evening — decide whether to rebuild them in the redesign dark theme (they're currently old off-brand design)
+- [ ] Re-curate /videos list if Kyle wants specific videos featured
+- [ ] Kyle to send URLs for Blueport, BSR, KISD, MI logos (carried over)
+- [ ] Team photos for About page when ready (carried over)
+
+**Gotchas:**
+- The 5 service sub-pages (/services/<slug>) are pre-redesign design — light theme, Button/Card from old design system. They don't match the rest of the site. Footer links point to them.
+- YouTube channel pages are JS-rendered — WebFetch can't see videos. Get channel ID via `curl ... | grep externalId`, then titles+IDs via the RSS feed `youtube.com/feeds/videos.xml?channel_id=UC...` (latest 15).
+
+---
+
 ## Session - 2026-03-01
 
 **Completed:**
@@ -41,8 +75,43 @@
 - Used `output: 'export'` static export mode (already configured in next.config)
 
 **Pending:**
-- [ ] Service section images (partner still needs to share the folder link)
 - [ ] Team photos for About page when ready (section removed for now)
+
+---
+
+## Session - 2026-05-10
+
+**Completed:**
+- Reordered services per Kyle: Digital Infra → Network/Wi-Fi → Surveillance → Access Control → Prop-Tech → A/V → VoIP
+- Wired real service images from /public/services/ into services page
+- Replaced old 6 partner logos with 17 new logos from Kyle; trimmed to 8 clean ones that render correctly with white treatment
+- Bumped hero icon ring from 48px → 64px (Kyle asked again)
+- Built /projects video gallery section — ready for YouTube IDs, fake placeholder data removed
+- Fixed broken asset paths (spaces in folder names "Partner Logos", "Services Page" caused 404s in static export — renamed to partner-logos/, services/)
+- Fixed partner marquee: uniform w-44 h-20 boxes, object-contain, brightness-0 invert for consistent white logos
+- Removed Elauwit, Groove, Hilton, IHG, MAA from marquee (blank boxes — logos incompatible with white filter treatment)
+
+**Files Changed:**
+- app/(main)/services/page.tsx — service reorder, real images, Image import
+- app/(main)/projects/page.tsx — removed fake data/stats, added YouTube video gallery structure
+- components/redesign/home/hero-section.tsx — icon ring size bump
+- components/redesign/home/partner-marquee.tsx — new logos, uniform boxes, white filter, trimmed list
+
+**Decisions:**
+- Videos go on /projects page as YouTube embeds (Kyle uploads to YouTube, sends links)
+- White filter (brightness-0 invert) kept for logo consistency — logos with non-transparent backgrounds don't work with this approach, remove those
+- No fake stats or placeholder project cards on /projects — clean empty state until Kyle provides real data
+
+**Next Steps:**
+- [ ] Kyle to send URLs for Blueport, BSR, KISD, MI logos
+- [ ] Kyle to create YouTube channel and upload videos, send links
+- [ ] Wire YouTube IDs into /projects video gallery
+- [ ] Real project names/details from Kyle if he wants project cards populated
+- [ ] Team photos for About page when ready
+
+**Gotchas:**
+- Spaces in public/ folder names and filenames cause 404s in Next.js static export — always use kebab-case for asset folders and files
+- brightness-0 invert CSS filter only works for logos with transparent backgrounds — JPEGs and PNGs with solid backgrounds render as solid white rectangles
 
 **Gotchas:**
 - wrangler.json `build.command` key is NOT valid for Pages projects — caused 2 months of CI failures
