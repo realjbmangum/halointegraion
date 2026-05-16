@@ -19,8 +19,15 @@
 - "Videos" link added to nav (glass-navigation.tsx) and footer company list (footer.tsx).
 - Confirmed: NO real project data exists locally — searched whole repo + ~/Downloads, ~/Desktop, ~/Documents. The Dec 22 WORK-LOG notes a folder Kyle named "Won Project Images for Website" that was never added. /projects has only ever had fake placeholder cards. Real data must come from Kyle / that folder.
 
+**Projects page populated (later same session):**
+- Kyle sent project content as public/Closed Projects.docx (53MB, 18 projects + embedded images).
+- Extracted text + images from the .docx (it's a zip: word/document.xml for text, media/ for images, word/_rels/document.xml.rels maps rId→media file; images appear in doc order, one per project).
+- Optimized all 18 images via `sips -s format jpeg -Z 1600` (some originals were 11-13MB PNGs) → public/projects/*.jpg, 8.2MB total (~450KB avg).
+- Populated projects[] array in app/(main)/projects/page.tsx with all 18 (name, category, location, unit/room count, scope blurb, image). Doc order kept (alphabetical).
+- Card: location line now conditional (300 E 36th has no city), images lazy-load + subtle hover zoom.
+- Deleted public/Closed Projects.docx — 53MB source file, should not ship in the static export.
+
 **Next Steps:**
-- [ ] Get the "Won Project Images for Website" folder from Kyle (images + names/unit counts/blurbs) → populate projects[] array in app/(main)/projects/page.tsx (grid already built)
 - [ ] Kyle reviewing service sub-pages this evening — decide whether to rebuild them in the redesign dark theme (they're currently old off-brand design)
 - [ ] Re-curate /videos list if Kyle wants specific videos featured
 - [ ] Kyle to send URLs for Blueport, BSR, KISD, MI logos (carried over)
