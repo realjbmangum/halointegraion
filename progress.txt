@@ -28,7 +28,7 @@
 - Deleted public/Closed Projects.docx — 53MB source file, should not ship in the static export.
 
 **Next Steps:**
-- [ ] Kyle reviewing service sub-pages this evening — decide whether to rebuild them in the redesign dark theme (they're currently old off-brand design)
+- [ ] DEFERRED (Brian, May 16): rebuild the 5 service sub-pages in the dark redesign theme "later" — broken images fixed for now, off-brand light design left as-is
 - [ ] Re-curate /videos list if Kyle wants specific videos featured
 - [ ] Kyle to send URLs for Blueport, BSR, KISD, MI logos (carried over)
 - [ ] Team photos for About page when ready (carried over)
