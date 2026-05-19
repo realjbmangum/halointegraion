@@ -1,41 +1,40 @@
 ## Session - 2026-05-16
 
-**Completed (Kyle email feedback round 2):**
+Kyle email feedback round 2. Four items, all shipped + deployed.
+
+**Completed:**
 - Partner marquee: removed hyperlinks per Kyle — logos now just scroll, no links, no hover/box chrome. Plain white logos on the track.
-- /projects: removed the YouTube video gallery (Kyle clarified those videos are social-media content, not project videos — project videos don't exist). Restored the previous-website card format: property image, name, location, unit/room count, 1-2 sentence write-up. Card structure pulled from git (commit 9cc734b). Data array left empty with a documented example shape + clean "coming soon" empty state — Kyle is sending real project content.
-- Service sub-pages: fixed broken hero images on all 5 (/services/digital-solutions, enterprise, hospitality, infrastructure-consulting, multi-family). They referenced /software-development-coding.jpg, /luxury-hotel-lobby.jpg, /enterprise-data-center.jpg, /network-infrastructure-datacenter.jpg, /modern-apartment-building.jpg — none of which exist in public/. Repointed each to an existing image. This is the "broken header image in each section" Kyle reported.
+- /projects: removed the YouTube video gallery (Kyle clarified those YouTube clips are social-media content, not project videos). Restored the previous-website property-card format (image, name, location, unit/room count, 1-2 sentence scope). Card structure pulled from git (commit 9cc734b).
+- /projects POPULATED: Kyle sent content as public/Closed Projects.docx (53MB). Extracted text + 18 embedded images from the .docx, optimized images via `sips -s format jpeg -Z 1600` (originals were up to 11-13MB PNGs) → public/projects/*.jpg (8.2MB total, ~450KB avg). All 18 projects now in the projects[] array (12 Multi-Family, 6 Hospitality). Deleted the 53MB .docx so it doesn't ship in the static export.
+- New /videos page — curated 3x3 grid of YouTube embeds from Kyle's channel @halo_integration + "View all on YouTube" button. "Videos" added to nav + footer.
+- Fixed broken hero images on all 5 service sub-pages (they referenced non-existent /software-development-coding.jpg etc.) — repointed to existing images.
 
 **Files Changed:**
-- components/redesign/home/partner-marquee.tsx — removed <a> links, hover chrome, href data
-- app/(main)/projects/page.tsx — removed video gallery, restored project card grid (image/name/units/blurb), empty state
+- components/redesign/home/partner-marquee.tsx — removed <a> links + hover chrome
+- app/(main)/projects/page.tsx — removed video gallery, property-card grid, 18 real projects
+- app/(main)/videos/page.tsx — NEW, curated YouTube grid
+- components/redesign/layout/{glass-navigation,footer}.tsx — added Videos link
 - app/(main)/services/{digital-solutions,enterprise,hospitality,infrastructure-consulting,multi-family}/page.tsx — fixed broken hero img src
+- public/projects/*.jpg — 18 NEW optimized property images
 
 **Decisions:**
-- Kyle confirmed: no hyperlinks on partner logos, no project videos. /projects goes back to property cards.
-- Service sub-pages: user chose "just fix broken images" — left old off-brand design intact, only unbroke the images. Kyle reviewing this evening; he flagged these pages "need to be built out further" — likely a follow-up.
+- Partner logos: no hyperlinks (Kyle). /projects: property cards, not videos (Kyle).
+- /videos: curated grid chosen over auto-feed — static site (no API key), and a marketing site should curate rather than surface every social clip. Re-curate by swapping IDs in the `videos` array.
+- Service sub-pages: "just fix broken images" only — old off-brand light design left intact. Brian deferred the dark-theme rebuild to "later" (May 16).
 
-**Added later same session:**
-- New /videos page (app/(main)/videos/page.tsx) — curated 3x3 grid of YouTube embeds from Kyle's channel @halo_integration (channel ID UCEY19QSOhT8QZjPT0gv5u5w) + "View all on YouTube" button. Curated approach chosen over auto-feed (static site, no API key, marketing site should curate). 9 videos hand-picked from the channel's 22; swap IDs in the `videos` array to re-curate. Uses youtube-nocookie.com + loading="lazy".
-- "Videos" link added to nav (glass-navigation.tsx) and footer company list (footer.tsx).
-- Confirmed: NO real project data exists locally — searched whole repo + ~/Downloads, ~/Desktop, ~/Documents. The Dec 22 WORK-LOG notes a folder Kyle named "Won Project Images for Website" that was never added. /projects has only ever had fake placeholder cards. Real data must come from Kyle / that folder.
-
-**Projects page populated (later same session):**
-- Kyle sent project content as public/Closed Projects.docx (53MB, 18 projects + embedded images).
-- Extracted text + images from the .docx (it's a zip: word/document.xml for text, media/ for images, word/_rels/document.xml.rels maps rId→media file; images appear in doc order, one per project).
-- Optimized all 18 images via `sips -s format jpeg -Z 1600` (some originals were 11-13MB PNGs) → public/projects/*.jpg, 8.2MB total (~450KB avg).
-- Populated projects[] array in app/(main)/projects/page.tsx with all 18 (name, category, location, unit/room count, scope blurb, image). Doc order kept (alphabetical).
-- Card: location line now conditional (300 E 36th has no city), images lazy-load + subtle hover zoom.
-- Deleted public/Closed Projects.docx — 53MB source file, should not ship in the static export.
+**Commits (all pushed to main):** a9c0bde (Kyle feedback v2), 3528f0a (18 projects), + progress doc commit. CF Pages auto-deploys.
 
 **Next Steps:**
-- [ ] DEFERRED (Brian, May 16): rebuild the 5 service sub-pages in the dark redesign theme "later" — broken images fixed for now, off-brand light design left as-is
-- [ ] Re-curate /videos list if Kyle wants specific videos featured
-- [ ] Kyle to send URLs for Blueport, BSR, KISD, MI logos (carried over)
-- [ ] Team photos for About page when ready (carried over)
+- [ ] Spot-check /projects once deployed — images mapped by document order; confirm each photo matches its property.
+- [ ] DEFERRED (Brian, May 16): rebuild the 5 service sub-pages in the dark redesign theme — broken images fixed for now, off-brand light design left as-is.
+- [ ] Re-curate /videos list if Kyle wants specific videos featured.
+- [ ] Kyle to send URLs for Blueport, BSR, KISD, MI logos (carried over).
+- [ ] Team photos for About page when ready (carried over).
 
 **Gotchas:**
-- The 5 service sub-pages (/services/<slug>) are pre-redesign design — light theme, Button/Card from old design system. They don't match the rest of the site. Footer links point to them.
-- YouTube channel pages are JS-rendered — WebFetch can't see videos. Get channel ID via `curl ... | grep externalId`, then titles+IDs via the RSS feed `youtube.com/feeds/videos.xml?channel_id=UC...` (latest 15).
+- The 5 service sub-pages (/services/<slug>) are pre-redesign design — light theme, old Button/Card components. They don't match the rest of the site. Footer links point to them.
+- YouTube channel pages are JS-rendered — WebFetch can't see videos. Get channel ID via `curl <channel>/videos | grep externalId`, then titles+IDs via the RSS feed `youtube.com/feeds/videos.xml?channel_id=UC...` (latest 15).
+- .docx files are zips: word/document.xml = text, word/media/ (or media/) = images, word/_rels/document.xml.rels maps rId→media file. Images appear in document order.
 
 ---
 
